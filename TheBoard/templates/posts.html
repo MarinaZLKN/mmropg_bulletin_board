@@ -7,4 +7,30 @@ Future Posts
 
 {% block content %}
 Всё, что я сюда напишу, джанго отобразит на странице
+<br>
+<br>
+<br>
+{% if posts%}
+{% for post in posts %}
+<table>
+    <tr>
+        <p style="text-align: left;">Заголовок: {{ post.title}}</p>
+        <p style="text-align: left;">Категория: {{ post.type }}
+            {% for cat in post.type.all %}
+            {{cat}}
+            {% endfor %}</p>
+        <p style="text-align: left;">Сообщение: {{ post.content }}</p>
+        <p style="text-align: left;">Изображение:</p>
+        <p style="text-align: left;"><span style="color: #999999;"><em>Дата публикации: {{ post.datecreation}}</em></span></p>
+        <p style="text-align: left;"><span style="color: #999999;"><em>Автор: {{ post.author }}</em></span></p>
+    </tr>
+    <br>
+    <hr>
+    <br>
+    {% endfor %}
+
+</table>
+{% else %}
+<h2>Новостей нет!</h2>
+{% endif %}
 {% endblock content %}
