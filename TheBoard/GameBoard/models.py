@@ -24,10 +24,17 @@ class Post(models.Model):
     content = models.TextField(verbose_name='Сообщение')
     upload = models.FileField(upload_to='uploads/', blank=True)
 
-
     def __str__(self):
         return f'{self.title}'
 
+    def image_img(self):
+        if self.image:
+            return u'<a href="{0}" target="_blank"><img src="{0}"width= "100" / > < / a > '.format(self.image.url)
+        else:
+            return '(Нет изображения)'
+
+    image_img.short_description = 'Картинка'
+    image_img.allow_tags = True
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
