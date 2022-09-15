@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .forms import PostForm
 from .models import Post
@@ -26,3 +26,8 @@ class PostCreate(CreateView):
     template_name = 'post_create_edit.html'
     success_url = reverse_lazy('home')
 
+class PostUpdate(UpdateView):
+    form_class = PostForm
+    model = Post
+    template_name = 'post_create_edit.html'
+    success_url = reverse_lazy('home')
