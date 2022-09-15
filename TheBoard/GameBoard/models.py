@@ -18,12 +18,12 @@ class Post(models.Model):
         ('spellmaster', 'Мастера заклинаний'),
     ]
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
     title = models.CharField(max_length=255, verbose_name="Заголовок")
     datecreation = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     type = models.CharField(max_length=16, choices=TYPES, default='merchant', verbose_name='Тип обьявления')
     content = models.TextField(verbose_name='Сообщение')
-    upload = models.FileField(upload_to='uploads/', blank=True)
+    upload = models.FileField(upload_to='uploads/', blank=True, verbose_name='Изображение')
 
     def __str__(self):
         return f'{self.title}'

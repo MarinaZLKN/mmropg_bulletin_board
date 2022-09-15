@@ -5,7 +5,8 @@ from .models import Post
 
 
 class PostForm(forms.ModelForm):
-    content = forms.CharField(min_length=50)
+    content = forms.CharField(min_length=50, label="Сообщение", widget=forms.Textarea)
+
 
     class Meta:
         model = Post
