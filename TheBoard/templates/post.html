@@ -1,17 +1,6 @@
 {% extends 'default.html' %}
 
-
-{% block title %}
-Future Posts
-{% endblock title %}
-
 {% block content %}
-Всё, что я сюда напишу, джанго отобразит на странице
-<br>
-<br>
-<br>
-{% if posts%}
-{% for post in posts %}
 <table>
     <tr>
         <p style="text-align: left;">Заголовок: {{ post.title}}</p>
@@ -32,10 +21,6 @@ Future Posts
     <br>
     <hr>
     <br>
-    {% endfor %}
 
 </table>
-{% else %}
-<h2>Сообщений нет!</h2>
-{% endif %}
 {% endblock content %}
